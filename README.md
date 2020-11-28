@@ -69,7 +69,7 @@ The previously submitted 'GoChaseIt!' project can be found here: https://github.
     │   │   ├── gochaseit.rviz   
     │   ├── CMakeLists.txt             # compiler instructions
     │   ├── package.xml                # package info
-    ├── ball_chaser                    # ball_chaser package     
+    ├── ball_chaser_OOP                # ball_chaser_OOP package     
     │   ├── include
     │   │   ├── ball_chaser_OOP
     │   │   │   ├── ProcessImage.h
