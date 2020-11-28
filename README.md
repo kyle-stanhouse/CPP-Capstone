@@ -1,16 +1,16 @@
 # C++ Capstone Project Description: Ball Chaser OOP
 
-For completion of the C++ capstone project I have chosen to apply object oriented principles (OOP) to the 'GoChaseIt!' project completed as a part of the 'Robotics Software Engineer' Nanodegree program. The 'GoChaseIt!' project called for the implementation of a ball chaser application in which a custom robot placed in a custom gazebo world detects and follows a white ball in it's field of view. The app employs 2 ROS nodes and 1 service (server and client) to achieve the necessary communication between the main process, the robot motor controller, and camera input used for detection. The manner in which these elements are implemented in the course project does not make use of various object-oriented princpiles, which is my capstone submission will attempt to rectify.
+For completion of the C++ capstone project I have chosen to apply object oriented principles (OOP) to the 'GoChaseIt!' project completed as a part of the 'Robotics Software Engineer' Nanodegree program. The 'GoChaseIt!' project called for the implementation of a ball chaser application in which a custom robot placed in a custom gazebo world detects and follows a white ball in it's field of view. The app employs 2 ROS nodes and 1 service (server and client) to achieve the necessary communication between the main process, the robot motor controller, and camera input used for detection. The manner in which these elements are implemented in the course project does not make use of various object-oriented principles, which my capstone submission will attempt to rectify.
 
 ## What is different
-The basic functionality of the application is unchanged, however node/service handling and callbacks have been structured in classes ProcessImage and DriveBot class BallChaser. 
+The basic functionality of the application is unchanged, however node/service handling and callbacks have been structured in the classes ProcessImage and DriveBot. 
 
-The previously submitted 'GoChaseIt!' project can be found here: https://github.com/kyle-stanhouse/GoChaseIt. The following project criteria addressed does not include tasks performed for the previous project.
+The previously submitted 'GoChaseIt!' project can be found here: https://github.com/kyle-stanhouse/GoChaseIt. The following C++ Capstone project criteria addressed does not include tasks performed for the previous project.
 
 **The following criteria/specifications from the Capstone rubric are met.**
 
 **Criteria:** _The project uses Object Oriented Programming techniques._\
-**Meets Specifications:** _The project code is organized into classes with class attributes to hold the data, and class methods to perform tasks._
+**Meets Specifications:** _The project code is organized into classes with class attributes to hold the data, and class methods to perform tasks._\
 **Explanation:** There are now two classes that contain the necessary nodes, services, and callbacks, namely ProcessImage and DriveBot. Each contains class attributes and methods and is separated into header and source files.
 
 **Criteria:** Classes use appropriate access specifiers for class members.\
@@ -27,7 +27,7 @@ The previously submitted 'GoChaseIt!' project can be found here: https://github.
 
 **Criteria:** Classes encapsulate behavior.\
 **Meets Specifications:** Appropriate data and functions are grouped into classes. Member data that is subject to an invariant is hidden from the user. State is accessed via member functions.\
-**Explanation:** Encapsulation is perhaps the main benefit of applying object-oriented principles to the 'GoChaseIt!' project. The user only needs to initialize the node and create the node handle and is spared the rest of the details. There however aren't currently any accessors or mutators.
+**Explanation:** Encapsulation is perhaps the main benefit of applying object-oriented principles to the 'GoChaseIt!' project. The user only needs to initialize the ros node and create the node handle in each process and is spared the rest of the details. There however aren't currently any accessors or mutators for external use.
 
 **Criteria:** The project makes use of references in function declarations.\
 **Meets Specifications:** At least two variables are defined as references, or two functions use pass-by-reference in the project code.\
@@ -65,6 +65,8 @@ The previously submitted 'GoChaseIt!' project can be found here: https://github.
     │   │   ├── my_robot.xacro
     │   ├── world                      # world folder for world files
     │   │   ├── ball_chaser_world.world
+    │   ├── rviz                      # rviz folder for description files
+    │   │   ├── gochaseit.rviz   
     │   ├── CMakeLists.txt             # compiler instructions
     │   ├── package.xml                # package info
     ├── ball_chaser                    # ball_chaser package     
@@ -107,27 +109,25 @@ sudo apt-get update && sudo apt-get upgrade -y
   
 ## Install and run 
 
-* Create a `catkin_ws`
-`$ mkdir -p /home/workspace/catkin_ws/`
-`$ cd /home/workspace/catkin_ws/src`
+* Create a `catkin_ws`\
+`$ mkdir -p /home/workspace/catkin_ws/src`\
+`$ cd /home/workspace/catkin_ws/src`\
 `$ catkin_init_workspace`
- 
- test this in project workspace 
 
 * Clone repository
-`git clone https://github.com/kyle-stanhouse/cpp_capstone.git`
+`$ git clone https://github.com/kyle-stanhouse/CPP-Capstone.git`
 
 * Build application 
-`catkin_make`
+`$ cd /home/workspace/catkin_ws`\
+`$ catkin_make`
 
-* Run project
-Open up terminal 1
-`roslaunch my_robot world.launch`
-Open up terminal 2
-`roslaunch ball_chaser_OOP ball_chaser.launch`
+* Run project\
+Open up terminal 1\
+`$ roslaunch my_robot world.launch`
+Open up terminal 2\
+`$ roslaunch ball_chaser_OOP ball_chaser.launch`
 
-Observe the robot follow the ball as you move it around the gazebo world. 
-The robot will stop when the white ball is not in it's field of view.
+Gazebo and rviz will launch with the white ball visible in teh robot's field of view. It will begin attempting to follow the white ball upon execution of the ball_chaser.launch. The user can move the white ball around to make the robot change direction and follow. The robot will stop when the white ball is not in it's field of view.
 
 
 
