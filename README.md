@@ -123,11 +123,13 @@ sudo apt-get update && sudo apt-get upgrade -y
 
 * Run project\
 Open up terminal 1\
-`$ roslaunch my_robot world.launch`
+`$ roslaunch my_robot world.launch`\
 Open up terminal 2\
 `$ roslaunch ball_chaser_OOP ball_chaser.launch`
 
-Gazebo and rviz will launch with the white ball visible in teh robot's field of view. It will begin attempting to follow the white ball upon execution of the ball_chaser.launch. The user can move the white ball around to make the robot change direction and follow. The robot will stop when the white ball is not in it's field of view.
+Gazebo and rviz will launch with the white ball visible in the robot's field of view. The robot will therefore immediately attempt to orient and drive towards the white ball upon execution of the ball_chaser.launch. The user can move the white ball around to make the robot change direction and follow. It will stop when the white ball is not in it's field of view.
+
+Please let me know if there are any questions!
 
 
 
